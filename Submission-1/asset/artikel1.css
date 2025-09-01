@@ -1,0 +1,86 @@
+:root {
+    --bg-dark: #0F172A;
+    --text-light: #E2E8F0;
+    --text-muted: #94A3B8;
+    --accent: #5EEAD4;
+    --card-bg: #1E293B;
+}
+
+body {
+    width: 100%;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    box-sizing: border-box;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-kembali {
+    display: inline-block;
+    background: var(--card-bg);
+    color: var(--accent);
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-kembali:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+.container {
+    width: 70%;
+    height: auto;
+    display: flex;
+    gap: 3rem;
+    padding: 3rem;
+}
+
+header {
+    width: 45%;
+}
+
+main {
+    width: 60%;
+    padding: 2rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+@media (max-width: 750px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        padding: 2rem;
+
+    }
+
+    header {
+        width: 70%;
+    }
+
+    main {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+}
