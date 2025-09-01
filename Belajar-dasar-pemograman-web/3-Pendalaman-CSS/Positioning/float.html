@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo CSS Float & Clear</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        background: #f9fafb;
+        color: #1f2937;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .box {
+        width: 120px;
+        height: 120px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 8px;
+      }
+
+      .float-left {
+        float: left;
+        background: #38bdf8; /* biru */
+        margin: 0 16px 16px 0;
+      }
+
+      .float-right {
+        float: right;
+        background: #f472b6; /* pink */
+        margin: 0 0 16px 16px;
+      }
+
+      .text {
+        background: white;
+        padding: 16px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+      }
+
+      /* Contoh clear */
+      .clear-left {
+        float: left;
+        background: #34d399; /* hijau */
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+      }
+      .clear-right {
+        clear: right;
+        background: #fbbf24; /* kuning */
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+      }
+      .clear-both {
+        clear: both;
+        background: #a78bfa; /* ungu */
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+      }
+
+      /* clearfix supaya container tetap wrap float */
+      .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Demo CSS Float & Clear</h1>
+
+    <div class="section text clearfix">
+      <div class="box float-left">LEFT</div>
+      <p>
+        Kotak biru ini menggunakan <code>float: left</code>. Teks mengalir di
+        sebelah kanan kotak.
+      </p>
+      <div class="clear-left">
+        Elemen ini pakai <code>clear: left</code> → turun ke bawah elemen yang
+        di-float kiri.
+      </div>
+    </div>
+
+    <div class="section text clearfix">
+      <div class="box float-right">RIGHT</div>
+      <p>
+        Kotak pink ini menggunakan <code>float: right</code>. Teks mengalir di
+        sebelah kiri kotak.
+      </p>
+      <div class="clear-right">
+        Elemen ini pakai <code>clear: right</code> → turun ke bawah elemen yang
+        di-float kanan.
+      </div>
+    </div>
+
+    <div class="section text clearfix">
+      <div class="box float-left">LEFT</div>
+      <div class="box float-right">RIGHT</div>
+      <p>
+        Di sini ada dua kotak: satu di kiri, satu di kanan. Teks mengalir di
+        antara keduanya.
+      </p>
+      <div class="clear-both">
+        Elemen ini pakai <code>clear: both</code> → turun ke bawah semua elemen
+        float (baik kiri maupun kanan).
+      </div>
+    </div>
+  </body>
+</html>

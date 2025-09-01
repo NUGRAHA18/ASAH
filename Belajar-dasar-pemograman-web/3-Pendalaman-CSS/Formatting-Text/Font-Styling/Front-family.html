@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Judul Dokumen</title>
+    <style>
+      /* font-family : nama-font, generic-font-family */
+      body {
+        font-family: sans-serif;
+      }
+
+      /*@font-face adalah sebuah at-rule (aturan khusus) dalam CSS yang memungkinkan kamu untuk menggunakan font kustom di halaman web, bahkan jika font tersebut tidak terpasang di komputer pengguna. Ini sangat berguna untuk memastikan desain website tetap konsisten dan unik di semua perangkat.*/
+      @font-face {
+        font-family: "NamaFontKustom";
+        src: url("path/ke/file-font.woff2") format("woff2"),
+          url("path/ke/file-font.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="jumbotron">
+        <h1>Bandung</h1>
+        <p>
+          Kota metropolitan terbesar di Provinsi Jawa Barat, sekaligus menjadi
+          ibu kota provinsi tersebut.
+        </p>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#">Sejarah</a></li>
+          <li><a href="#">Geografis</a></li>
+          <li><a href="#">Wisata</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
