@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. Buat kelas induk Pegawai
+      // ...
+      class Pegawai {
+        constructor(nama, gajiPokok) {
+          this.nama = nama;
+          this.gajiPokok = gajiPokok;
+        }
+
+        hitungGaji() {
+          return this.gajiPokok;
+        }
+      }
+      // 2. Buat kelas anak PegawaiTetap
+      // ...
+
+      class PegawaiTetap extends Pegawai {
+        constructor(nama, gajiPokok, tunjangan) {
+          super(nama, gajiPokok);
+          this.tunjangan = tunjangan;
+        }
+
+        hitungGaji() {
+          return this.gajiPokok + this.tunjangan;
+        }
+      }
+      // 3. Buat kelas anak PegawaiKontrak
+      // ...
+
+      class PegawaiKontrak extends Pegawai {
+        constructor(nama, gajiPokok, jamKerja, upahPerJam) {
+          super(nama, gajiPokok);
+          this.jamKerja = jamKerja;
+          this.upahPerJam = upahPerJam;
+        }
+
+        hitungGaji() {
+          return this.jamKerja * this.upahPerJam;
+        }
+      }
+      // 4. Buat array dengan instance kedua kelas
+      const daftarPegawai = [
+        new PegawaiTetap("Budi", 5000000, 1000000), // nama, gajiPokok, tunjangan
+        new PegawaiKontrak("Susi", 0, 160, 50000), // nama, gajiPokok (diabaikan), jamKerja, upahPerJam
+      ];
+
+      // 5. Iterasi dan cetak gaji menggunakan polymorphism
+      console.log("Perhitungan Gaji Karyawan:");
+      daftarPegawai.forEach((pegawai) => {
+        console.log(`Gaji total ${pegawai.nama} : ${pegawai.hitungGaji()}`);
+      });
+
+      console.log(daftarPegawai);
+    </script>
+  </body>
+</html>
