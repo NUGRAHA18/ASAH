@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contoh Kartu CSS</title>
+    <style>
+      /*
+  Ini adalah komentar CSS.
+  Kode ini mengatur gaya untuk kartu sederhana.
+*/
+
+      /* --- STYLE UMUM --- */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      /* --- STYLE KARTU --- */
+      .card {
+        /* Box Model */
+        width: 300px;
+        border: 1px solid #ccc; /* Shorthand: border-width border-style border-color */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        /* Spacing */
+        padding: 20px; /* Shorthand: padding semua sisi */
+        margin: 20px; /* Shorthand: margin semua sisi */
+
+        background-color: white;
+      }
+
+      .card-title {
+        /* Font Shorthand */
+        font: bold 24px/1.2 Arial, sans-serif;
+        color: #333;
+        margin-top: 0;
+      }
+
+      .card-body {
+        /* Font Shorthand */
+        font: 16px/1.5 Arial, sans-serif;
+        color: #666;
+      }
+
+      .card-link {
+        /* Style link */
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .card-link:hover {
+        /* Pseudo-class: saat kursor di atas link */
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2 class="card-title">Judul Artikel</h2>
+      <p class="card-body">
+        Ini adalah contoh paragraf yang menjelaskan isi dari kartu. Teks ini
+        menggunakan shorthand properties untuk font dan padding.
+      </p>
+      <a href="#" class="card-link">Baca Selengkapnya</a>
+    </div>
+  </body>
+</html>

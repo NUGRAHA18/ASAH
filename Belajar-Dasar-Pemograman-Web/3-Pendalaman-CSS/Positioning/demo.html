@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo Jenis Positioning CSS (Box)</title>
+    <style>
+      :root {
+        --bg: #0f172a; /* slate-900 */
+        --fg: #e2e8f0; /* slate-200 */
+        --muted: #94a3b8; /* slate-400 */
+        --card: #111827; /* gray-900 */
+        --accent: #38bdf8; /* sky-400 */
+        --accent-2: #a78bfa; /* violet-400 */
+        --accent-3: #34d399; /* emerald-400 */
+        --accent-4: #f472b6; /* pink-400 */
+        --accent-5: #fbbf24; /* amber-400 */
+        --border: #1f2937; /* gray-800 */
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--fg);
+        background: linear-gradient(180deg, #0b1220, var(--bg));
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        backdrop-filter: blur(6px);
+        background: #0b1220cc; /* hex + alpha (bukan rgb) */
+        border-bottom: 1px solid var(--border);
+        padding: 16px 20px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+      header p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 24px auto;
+        padding: 0 16px 160px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        box-shadow: 0 10px 30px #00000040; /* hex + alpha */
+      }
+      .section h2 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+      .section p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .stage {
+        position: relative; /* untuk memberi konteks visual */
+        background: #0b1220;
+        border: 1px dashed #22314d;
+        border-radius: 14px;
+        height: 180px;
+        padding: 12px;
+        overflow: hidden;
+      }
+
+      /* Kotak dasar */
+      .box {
+        display: grid;
+        place-items: center;
+        width: 110px;
+        height: 70px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 14px;
+        border: 1px solid #00000033; /* hex + alpha */
+      }
+
+      /* Warna berbagai tipe */
+      .b-static {
+        background: var(--accent);
+      }
+      .b-relative {
+        background: var(--accent-2);
+      }
+      .b-absolute {
+        background: var(--accent-3);
+      }
+      .b-fixed {
+        background: var(--accent-4);
+      }
+      .b-sticky {
+        background: var(--accent-5);
+      }
+
+      /* 1) static: default, mengikuti alur dokumen */
+      .stage.static .box {
+        position: static;
+      }
+
+      /* 2) relative: bergeser relatif terhadap posisi normalnya */
+      .stage.relative .box {
+        position: relative;
+        left: 16px;
+        top: -8px;
+      }
+
+      /* 3) absolute: absolut terhadap ancestor terdekat yang positioned */
+      .stage.absolute {
+        position: relative;
+      }
+      .stage.absolute .hint-parent {
+        position: absolute;
+        inset: 10px;
+        border: 1px dashed #334155;
+        border-radius: 10px;
+        pointer-events: none;
+      }
+      .stage.absolute .box {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+      }
+
+      /* 4) fixed: relatif ke viewport (layar) */
+      .fixed-floating {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 50;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: #111827cc;
+        border: 1px solid var(--border);
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .fixed-floating small {
+        color: var(--muted);
+      }
+
+      /* 5) sticky: menempel di tepi kontainer scroll ketika melewati ambang top */
+      .scroll-area {
+        height: 220px;
+        overflow: auto;
+        border-radius: 12px;
+        border: 1px dashed #22314d;
+        background: #0b1220;
+      }
+      .sticky-head {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        padding: 10px 12px;
+        font-weight: 700;
+        background: #0b1220f2;
+        border-bottom: 1px solid #22314d;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0 0;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--muted);
+        padding: 6px 10px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        display: inline-block;
+      }
+
+      .filler {
+        height: 120vh;
+      }
+      footer {
+        color: var(--muted);
+        text-align: center;
+        padding: 40px 12px 80px;
+      }
+      code.inline {
+        background: #0b1220cc;
+        padding: 2px 6px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Demo Jenis Positioning CSS</h1>
+      <p>
+        Contoh <span class="code inline">static</span>,
+        <span class="code inline">relative</span>,
+        <span class="code inline">absolute</span>,
+        <span class="code inline">fixed</span>, dan
+        <span class="code inline">sticky</span> digambarkan dengan box.
+      </p>
+    </header>
+
+    <div class="wrap">
+      <div class="legend">
+        <span class="chip"
+          ><span class="dot" style="background: var(--accent)"></span
+          >static</span
+        >
+        <span class="chip"
+          ><span class="dot" style="background: var(--accent-2)"></span
+          >relative</span
+        >
+        <span class="chip"
+          ><span class="dot" style="background: var(--accent-3)"></span
+          >absolute</span
+        >
+        <span class="chip"
+          ><span class="dot" style="background: var(--accent-4)"></span
+          >fixed</span
+        >
+        <span class="chip"
+          ><span class="dot" style="background: var(--accent-5)"></span
+          >sticky</span
+        >
+      </div>
+
+      <div class="grid" style="margin-top: 16px">
+        <!-- Static -->
+        <section class="section">
+          <h2>1) position: static (default)</h2>
+          <p>
+            Elemen mengikuti alur normal dokumen. Properti seperti
+            <code class="inline">top/left</code> tidak berpengaruh.
+          </p>
+          <div class="stage static">
+            <div class="box b-static">STATIC</div>
+          </div>
+        </section>
+
+        <!-- Relative -->
+        <section class="section">
+          <h2>2) position: relative</h2>
+          <p>
+            Elemen tetap menyisakan ruang aslinya, namun dapat digeser relatif
+            terhadap posisi normalnya.
+          </p>
+          <div class="stage relative">
+            <div class="box b-relative">RELATIVE</div>
+          </div>
+        </section>
+
+        <!-- Absolute -->
+        <section class="section">
+          <h2>3) position: absolute</h2>
+          <p>
+            Diposisi absolut terhadap <em>ancestor</em> terdekat yang
+            <strong>positioned</strong> (bukan
+            <code class="inline">static</code>). Jika tidak ada, relatif ke
+            <em>viewport</em>.
+          </p>
+          <div class="stage absolute">
+            <div class="hint-parent"></div>
+            <div class="box b-absolute">ABSOLUTE</div>
+          </div>
+        </section>
+
+        <!-- Sticky -->
+        <section class="section">
+          <h2>4) position: sticky</h2>
+          <p>
+            Berperilaku seperti <code class="inline">relative</code> hingga
+            menyentuh ambang <code class="inline">top</code>, kemudian menempel
+            di tepi kontainer scroll.
+          </p>
+          <div class="stage" style="padding: 0">
+            <div class="scroll-area">
+              <div class="sticky-head b-sticky">STICKY HEADER (top: 0)</div>
+              <div style="padding: 12px; color: var(--muted)">
+                <p>Scroll di area ini untuk melihat efek sticky.</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Eligendi, commodi! Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, nisi.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Adipisci alias similique aut vitae sit, ducimus obcaecati sed
+                  deleniti!
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est
+                  vitae, perspiciatis tenetur cumque dignissimos totam neque?
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
+                  impedit. Necessitatibus impedit asperiores maxime cumque
+                  dolorem.
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Dignissimos amet sunt fugiat minima itaque libero!
+                </p>
+                <p>
+                  Donec vitae urna vel leo venenatis vulputate. Vestibulum ante
+                  ipsum primis in faucibus orci luctus et ultrices posuere
+                  cubilia curae.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Fixed -->
+        <section class="section">
+          <h2>5) position: fixed</h2>
+          <p>
+            Relatif ke <em>viewport</em>, tidak bergerak saat halaman discroll.
+          </p>
+          <div class="stage">
+            <div class="box b-fixed">(lihat pojok layar)</div>
+          </div>
+        </section>
+      </div>
+
+      <div class="filler"></div>
+      <footer>
+        <p>
+          Gunakan devtools untuk menyalakan/mematikan properti seperti
+          <code class="inline">top</code>, <code class="inline">left</code>,
+          <code class="inline">right</code>,
+          <code class="inline">bottom</code> dan rasakan efeknya.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Floating fixed demo badge -->
+    <div class="fixed-floating">
+      <span
+        class="box b-fixed"
+        style="
+          width: auto;
+          height: auto;
+          padding: 6px 10px;
+          border-radius: 10px;
+        "
+        >FIXED</span
+      >
+      <small>Selalu menempel di pojok kanan-bawah saat scroll</small>
+    </div>
+  </body>
+</html>

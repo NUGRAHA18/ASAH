@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contoh Border Shorthand</title>
+    <style>
+      .longhand {
+        /* Penulisan terpisah (longhand) */
+        border-width: 5px;
+        border-style: dashed;
+        border-color: red;
+
+        padding: 10px;
+        margin: 10px;
+      }
+
+      .shorthand {
+        /* Penulisan ringkas (shorthand) */
+        border: 5px solid blue;
+
+        padding: 10px;
+        margin: 10px;
+      }
+
+      .shorthand-lain {
+        /* Contoh shorthand lain */
+        border: 2px dotted green;
+
+        padding: 10px;
+        margin: 10px;
+      }
+
+      div {
+        width: 200px;
+        height: 100px;
+        background-color: #f0f0f0;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="longhand">Longhand</div>
+    <div class="shorthand">Shorthand</div>
+    <div class="shorthand-lain">Shorthand Lain</div>
+  </body>
+</html>

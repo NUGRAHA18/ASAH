@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contoh CSS Box Model dengan Margin</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      .kotak {
+        width: 200px;
+        padding: 25px;
+        border: 5px solid black;
+        background-color: lightblue;
+        margin: 20px; /* Jarak di sekeliling kotak */
+        display: inline-block;
+      }
+
+      .kotak-khusus {
+        width: 200px;
+        padding: 25px;
+        border: 5px solid red;
+        background-color: lightcoral;
+        margin-top: 50px; /* Hanya jarak di bagian atas */
+        margin-right: 100px; /* Hanya jarak di bagian kanan */
+        margin-bottom: 50px; /* Hanya jarak di bagian bawah */
+        margin-left: auto; /* Margin kiri otomatis (membuat rata kanan) */
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh Margin CSS</h1>
+    <div class="kotak">Kotak 1</div>
+    <div class="kotak-khusus">Kotak 2</div>
+  </body>
+</html>
