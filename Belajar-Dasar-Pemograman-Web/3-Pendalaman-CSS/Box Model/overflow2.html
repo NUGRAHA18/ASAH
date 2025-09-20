@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>overflow</title>
+    <style>
+      /* jenis overflow: visible | hidden | scroll | auto */
+      .container {
+        width: auto;
+        background-color: red;
+        height: 70vh;
+      }
+
+      h1 {
+        text-align: center;
+        color: white;
+        margin: 0;
+        padding: 10px;
+      }
+      .title {
+        width: 100%;
+        height: 10%;
+        background-color: green;
+      }
+      .wrap-content {
+        width: 100%;
+        height: 100%;
+        background-color: lightgreen;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding-top: 30px;
+      }
+
+      .wrap-content div {
+        width: 90%;
+        height: 30%;
+        background-color: lightblue;
+        border: 1px solid black;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .visible {
+        overflow: visible;
+      }
+
+      .hidden {
+        overflow: hidden;
+      }
+
+      .scroll {
+        overflow: scroll;
+      }
+
+      .auto {
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>overflow css</h1>
+      </div>
+      <div class="wrap-content">
+        <div class="visible">
+          <h3>Visible</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
+            expedita perferendis sed accusamus fugit ea et cumque minima.
+            Nostrum voluptas praesentium ea modi, a odio libero necessitatibus?
+            Ducimus, illo expedita?
+          </p>
+        </div>
+        <div class="hidden">
+            <h3>hidden</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et veniam
+            sapiente nemo provident ex adipisci enim voluptas voluptatem
+            perferendis repudiandae debitis, labore magni nam aperiam. Ea
+            deserunt beatae accusantium soluta.
+          </p>
+        </div>
+        <div class="scroll">
+            <h3>scroll</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            voluptatibus est vitae consectetur repellendus laborum deserunt
+            porro maxime illum! Fuga similique libero expedita repellat eos ad
+            earum. Deserunt, veritatis sunt?
+          </p>
+        </div>
+        <div class="auto">
+            <h3>auto</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+            nisi architecto magnam dolor dolorum ut, debitis repellendus, soluta
+            quod necessitatibus incidunt voluptatum quidem, laudantium officiis
+            adipisci velit fuga deserunt mollitia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

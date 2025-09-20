@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>overflow</title>
+    <style>
+      .container {
+        height: auto;
+        width: auto;
+        background-color: red;
+        display: flex;
+        flex-direction: row;
+      }
+      div {
+        width: 150px;
+        height: 150px;
+        background-color: lightgreen;
+        margin: 30px;
+        padding: 10px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        padding-top: 10%;
+      }
+
+      .visible {
+        overflow: visible;
+      }
+
+      .hidden {
+        overflow: hidden;
+      }
+
+      .scroll {
+        overflow: scroll;
+      }
+      .auto {
+        overflow: auto;
+      }
+
+      h1 {
+        text-align: center;
+        width: 100%;
+        height: 10%;
+        display: block;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>overflow</h1>
+      <div class="visible">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+          amet pariatur, nesciunt quae soluta repellendus, quas in dignissimos
+          saepe temporibus fugit quos. Aliquam vitae quo quidem sequi non
+          placeat culpa?
+        </p>
+      </div>
+      <div class="hidden">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+          amet pariatur, nesciunt quae soluta repellendus, quas in dignissimos
+          saepe temporibus fugit quos. Aliquam vitae quo quidem sequi non
+          placeat culpa?
+        </p>
+      </div>
+      <div class="scroll">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+          amet pariatur, nesciunt quae soluta repellendus, quas in dignissimos
+          saepe temporibus fugit quos. Aliquam vitae quo quidem sequi non
+          placeat culpa?
+        </p>
+      </div>
+      <div class="auto">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+          amet pariatur, nesciunt quae soluta repellendus, quas in dignissimos
+          saepe temporibus fugit quos. Aliquam vitae quo quidem sequi non
+          placeat culpa?
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

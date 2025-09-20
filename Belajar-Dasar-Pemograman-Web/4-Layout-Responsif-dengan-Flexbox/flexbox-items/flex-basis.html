@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Basis Flex Items</title>
+    <style>
+      .box {
+        height: 100px;
+      }
+
+      .box:nth-child(odd) {
+        background-color: salmon;
+      }
+
+      .box:nth-child(even) {
+        background-color: lime;
+      }
+
+      .flex {
+        padding: 8px;
+        background-color: lightgrey;
+
+        width: 300px;
+        display: flex;
+
+        gap: 8px;
+      }
+
+      .box1 {
+        flex-basis: 50px;
+      }
+
+      .box2 {
+        flex-basis: 150px;
+      }
+
+      .box3 {
+        flex-basis: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="flex">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+      </div>
+    </main>
+  </body>
+</html>

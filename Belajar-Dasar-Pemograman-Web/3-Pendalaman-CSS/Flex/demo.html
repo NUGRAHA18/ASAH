@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Display Flex</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        padding: 20px;
+      }
+
+      h2 {
+        margin-top: 40px;
+        color: #333;
+      }
+
+      .flex-container {
+        display: flex;
+        background: #fff;
+        border: 2px solid #333;
+        margin: 20px 0;
+        padding: 10px;
+        height: 120px;
+        gap: 10px;
+      }
+
+      .box {
+        background: #4da6ff;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        min-width: 80px;
+        height: 50px;
+      }
+
+      /* Variasi Container */
+      .jc-center {
+        justify-content: center;
+      }
+      .jc-between {
+        justify-content: space-between;
+      }
+      .jc-around {
+        justify-content: space-around;
+      }
+      .jc-evenly {
+        justify-content: space-evenly;
+      }
+      .ai-center {
+        align-items: center;
+      }
+      .ai-start {
+        align-items: flex-start;
+      }
+      .ai-end {
+        align-items: flex-end;
+      }
+      .fd-column {
+        flex-direction: column;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Demo CSS Flexbox</h1>
+
+    <h2>1. justify-content: center</h2>
+    <div class="flex-container jc-center">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">jc-center</div>
+    </div>
+
+    <h2>2. justify-content: space-between</h2>
+    <div class="flex-container jc-between">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">jc-between</div>
+    </div>
+
+    <h2>3. justify-content: space-around</h2>
+    <div class="flex-container jc-around">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">jc-around</div>
+    </div>
+
+    <h2>4. justify-content: space-evenly</h2>
+    <div class="flex-container jc-evenly">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">jc-evenly</div>
+    </div>
+
+    <h2>5. align-items: center</h2>
+    <div class="flex-container ai-center">
+      <div class="box">Box 1</div>
+      <div class="box">ai-center</div>
+      <div class="box">Box 3</div>
+    </div>
+
+    <h2>6. align-items: flex-start</h2>
+    <div class="flex-container ai-start">
+      <div class="box">Box 1</div>
+      <div class="box">ai-start</div>
+      <div class="box">Box 3</div>
+    </div>
+
+    <h2>7. align-items: flex-end</h2>
+    <div class="flex-container ai-end">
+      <div class="box">Box 1</div>
+      <div class="box">ai-end</div>
+      <div class="box">Box 3</div>
+    </div>
+
+    <h2>8. flex-direction: column</h2>
+    <div class="flex-container fd-column ai-center">
+      <div class="box">Box 1</div>
+      <div class="box">fd-column</div>
+      <div class="box">Box 3</div>
+    </div>
+  </body>
+</html>
