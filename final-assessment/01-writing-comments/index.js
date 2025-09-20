@@ -1,3 +1,4 @@
+
 // agungnugraha
 /*
 Goal tahun ini:
