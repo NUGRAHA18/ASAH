@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox Playground</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      main {
+        display: flex;
+        flex: 1;
+      }
+
+      /* Panel kontrol */
+      aside {
+        width: 250px;
+        background: #f5f5f5;
+        padding: 1rem;
+        border-right: 1px solid #ccc;
+        overflow-y: auto;
+      }
+
+      aside h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      aside label {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      aside select,
+      aside input {
+        width: 100%;
+        margin-top: 0.3rem;
+        padding: 0.3rem;
+      }
+
+      /* Area demo */
+      section {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        background: #fafafa;
+      }
+
+      .flex-container {
+        display: flex;
+        border: 2px dashed #333;
+        width: 80%;
+        height: 400px;
+        padding: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .box {
+        width: 80px;
+        height: 80px;
+        margin: 5px;
+        background: steelblue;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🎨 Flexbox Playground Interaktif</h1>
+      <p>Ubah properti di panel kiri & lihat efeknya langsung!</p>
+    </header>
+
+    <main>
+      <!-- Panel kontrol -->
+      <aside>
+        <h3>Flex Container</h3>
+        <label
+          >flex-direction:
+          <select id="flexDirection">
+            <option>row</option>
+            <option>row-reverse</option>
+            <option>column</option>
+            <option>column-reverse</option>
+          </select>
+        </label>
+
+        <label
+          >flex-wrap:
+          <select id="flexWrap">
+            <option>nowrap</option>
+            <option>wrap</option>
+            <option>wrap-reverse</option>
+          </select>
+        </label>
+
+        <label
+          >justify-content:
+          <select id="justifyContent">
+            <option>flex-start</option>
+            <option>flex-end</option>
+            <option>center</option>
+            <option>space-between</option>
+            <option>space-around</option>
+            <option>space-evenly</option>
+          </select>
+        </label>
+
+        <label
+          >align-items:
+          <select id="alignItems">
+            <option>stretch</option>
+            <option>flex-start</option>
+            <option>flex-end</option>
+            <option>center</option>
+            <option>baseline</option>
+          </select>
+        </label>
+
+        <label
+          >align-content:
+          <select id="alignContent">
+            <option>stretch</option>
+            <option>flex-start</option>
+            <option>flex-end</option>
+            <option>center</option>
+            <option>space-between</option>
+            <option>space-around</option>
+          </select>
+        </label>
+
+        <h3>Flex Items (Box 1)</h3>
+        <label
+          >order:
+          <input type="number" id="itemOrder" value="0" />
+        </label>
+
+        <label
+          >flex-grow:
+          <input type="range" id="itemGrow" min="0" max="5" value="0" />
+        </label>
+
+        <label
+          >flex-shrink:
+          <input type="range" id="itemShrink" min="0" max="5" value="1" />
+        </label>
+
+        <label
+          >flex-basis (px):
+          <input type="number" id="itemBasis" value="80" />
+        </label>
+
+        <label
+          >align-self:
+          <select id="itemAlignSelf">
+            <option>auto</option>
+            <option>flex-start</option>
+            <option>flex-end</option>
+            <option>center</option>
+            <option>baseline</option>
+            <option>stretch</option>
+          </select>
+        </label>
+      </aside>
+
+      <!-- Area demo -->
+      <section>
+        <div class="flex-container" id="flexContainer">
+          <div class="box" id="box1">1</div>
+          <div class="box">2</div>
+          <div class="box">3</div>
+          <div class="box">4</div>
+          <div class="box">5</div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const flexContainer = document.getElementById("flexContainer");
+      const box1 = document.getElementById("box1");
+
+      // Container controls
+      document.getElementById("flexDirection").oninput = (e) =>
+        (flexContainer.style.flexDirection = e.target.value);
+
+      document.getElementById("flexWrap").oninput = (e) =>
+        (flexContainer.style.flexWrap = e.target.value);
+
+      document.getElementById("justifyContent").oninput = (e) =>
+        (flexContainer.style.justifyContent = e.target.value);
+
+      document.getElementById("alignItems").oninput = (e) =>
+        (flexContainer.style.alignItems = e.target.value);
+
+      document.getElementById("alignContent").oninput = (e) =>
+        (flexContainer.style.alignContent = e.target.value);
+
+      // Item controls (box1)
+      document.getElementById("itemOrder").oninput = (e) =>
+        (box1.style.order = e.target.value);
+
+      document.getElementById("itemGrow").oninput = (e) =>
+        (box1.style.flexGrow = e.target.value);
+
+      document.getElementById("itemShrink").oninput = (e) =>
+        (box1.style.flexShrink = e.target.value);
+
+      document.getElementById("itemBasis").oninput = (e) =>
+        (box1.style.flexBasis = e.target.value + "px");
+
+      document.getElementById("itemAlignSelf").oninput = (e) =>
+        (box1.style.alignSelf = e.target.value);
+    </script>
+  </body>
+</html>
