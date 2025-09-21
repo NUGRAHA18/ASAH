@@ -122,12 +122,15 @@ function createBookElement(bookObject) {
   parentElement.setAttribute("data-testid", "bookItem");
 
   const titleElement = document.createElement("h3");
+  titleElement.setAttribute("data-testid", "bookItemTitle");
   titleElement.innerText = bookObject.title;
 
   const authorElement = document.createElement("p");
+  authorElement.setAttribute("data-testid", "bookItemAuthor");
   authorElement.innerText = "Penulis: " + bookObject.author;
 
   const yearElement = document.createElement("p");
+  yearElement.setAttribute("data-testid", "bookItemYear");
   yearElement.innerText = "Tahun: " + bookObject.year;
 
   // 🔹 Tombol aksi
@@ -196,10 +199,12 @@ function searchBooks() {
     }
   }
 
-  if (foundCount > 0) {
-    alert(foundCount + " buku ditemukan!");
-  } else {
-    alert("Tidak ada buku yang ditemukan!");
+  if (searchBookTitle !== "") {
+    if (foundCount > 0) {
+      alert(foundCount + " buku ditemukan");
+    } else {
+      alert("Tidak ada buku yang cocok dengan pencarian");
+    }
   }
 }
 
