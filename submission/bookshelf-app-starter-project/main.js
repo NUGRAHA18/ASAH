@@ -182,15 +182,24 @@ function searchBooks() {
     .value.toLowerCase();
 
   const bookItems = document.querySelectorAll("[data-testid='bookItem']");
+  let foundCount = 0;
+
   for (const bookItem of bookItems) {
     const title = bookItem.querySelector("h3").innerText.toLowerCase();
     const author = bookItem.querySelector("p").innerText.toLowerCase();
 
     if (title.includes(searchBookTitle) || author.includes(searchBookTitle)) {
       bookItem.style.display = "block";
+      foundCount++;
     } else {
       bookItem.style.display = "none";
     }
+  }
+
+  if (foundCount > 0) {
+    alert(foundCount + " buku ditemukan!");
+  } else {
+    alert("Tidak ada buku yang ditemukan!");
   }
 }
 
